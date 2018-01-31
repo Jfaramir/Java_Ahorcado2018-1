@@ -31,6 +31,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     }
 
     private void chequeaLetra(String letra){
+        URL nombreImagen;
         letra = letra.toUpperCase();
         String palabraConGuiones = jLabel1.getText();
         boolean acierto = false;
@@ -42,6 +43,14 @@ public class VentanaAhorcado extends javax.swing.JFrame {
                         + palabraConGuiones.substring(2*i+1);       
                 acierto = true;
             }
+        }
+        if (!palabraConGuiones.contains("_")){
+             nombreImagen = getClass().getResource("/imagenes/acertasteTodo.png");
+             int ancho =jLabel2.getWidth();
+             int alto =jLabel2.getHeight();
+             ImageIcon miImagen = new ImageIcon( new ImageIcon(nombreImagen).getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+             jLabel2.setIcon(miImagen);
+             
         }
         //actualizo el valor que se muestra en la pantalla con las letras
         //adivinadas
